@@ -5,7 +5,13 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
 import { NAV_LINKS } from "@/lib/constants";
 
-export default function Navbar() {
+// Menambahkan interface untuk TypeScript (Props)
+interface NavbarProps {
+  currentRole: string;
+  setCurrentRole: (role: string) => void;
+}
+
+export default function Navbar({ currentRole, setCurrentRole }: NavbarProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
@@ -45,11 +51,12 @@ export default function Navbar() {
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-8">
           {NAV_LINKS.map((link) => {
-            const isActive = location.pathname === link.href;
+            // PERBAIKAN: Menggunakan link.path sesuai struktur data asli Anda
+            const isActive = location.pathname === link.path;
             return link.internal ? (
               <Link
-                key={link.href}
-                to={link.href}
+                key={link.path}
+                to={link.path}
                 className={`transition-colors text-sm font-medium ${
                   isActive
                     ? "text-blue-600 border-b-2 border-blue-600"
@@ -57,27 +64,44 @@ export default function Navbar() {
                 }`}
               >
                 <motion.div whileHover={{ y: -2 }}>
-                  {link.label}
+                  {/* PERBAIKAN: Menggunakan link.name */}
+                  {link.name}
                 </motion.div>
               </Link>
             ) : (
               <motion.a
-                key={link.href}
-                href={link.href}
+                key={link.path}
+                href={link.path}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-700 hover:text-blue-600 transition-colors text-sm font-medium"
                 whileHover={{ y: -2 }}
               >
-                {link.label}
+                {/* PERBAIKAN: Menggunakan link.name */}
+                {link.name}
               </motion.a>
             );
           })}
+
+          {/* TAMBAHAN: Dropdown Simulasi Role (Desktop) */}
+          <div className="flex items-center gap-2 border-l border-gray-200 pl-6 ml-2">
+            <span className="text-xs font-semibold text-gray-400 uppercase tracking-wider">
+              Role:
+            </span>
+            <select
+              value={currentRole}
+              onChange={(e) => setCurrentRole(e.target.value)}
+              className="bg-gray-50 border border-gray-200 text-gray-700 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2 py-1.5 cursor-pointer outline-none transition-colors hover:bg-gray-100"
+            >
+              <option value="Admin Academic">Admin Akademik</option>
+              <option value="Staf Admisi">Staf Admisi</option>
+              <option value="Dosen">Dosen</option>
+            </select>
+          </div>
         </div>
 
         {/* Mobile Hamburger */}
         <div className="md:hidden flex items-center gap-2">
-          {/* Hamburger Menu */}
           <button
             aria-label="Toggle menu"
             className="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors"
@@ -117,15 +141,16 @@ export default function Navbar() {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.25 }}
-            className="md:hidden bg-white/90 backdrop-blur-md border-t border-gray-200"
+            className="md:hidden bg-white/90 backdrop-blur-md border-t border-gray-200 overflow-hidden"
           >
-            <div className="max-w-7xl mx-auto px-6 py-3 flex flex-col gap-3">
+            <div className="max-w-7xl mx-auto px-6 py-4 flex flex-col gap-4">
               {NAV_LINKS.map((link) => {
-                const isActive = location.pathname === link.href;
+                // PERBAIKAN: Menggunakan link.path dan link.name untuk versi mobile
+                const isActive = location.pathname === link.path;
                 return link.internal ? (
                   <Link
-                    key={link.href}
-                    to={link.href}
+                    key={link.path}
+                    to={link.path}
                     className={`text-sm font-medium transition-colors ${
                       isActive
                         ? "text-blue-600 font-bold"
@@ -133,21 +158,40 @@ export default function Navbar() {
                     }`}
                     onClick={() => setIsOpen(false)}
                   >
-                    {link.label}
+                    {link.name}
                   </Link>
                 ) : (
                   <a
-                    key={link.href}
-                    href={link.href}
+                    key={link.path}
+                    href={link.path}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-gray-800 hover:text-blue-600 text-sm font-medium"
                     onClick={() => setIsOpen(false)}
                   >
-                    {link.label}
+                    {link.name}
                   </a>
                 );
               })}
+
+              {/* TAMBAHAN: Dropdown Simulasi Role (Mobile) */}
+              <div className="mt-2 pt-4 border-t border-gray-200">
+                <label className="text-xs font-semibold text-gray-500 uppercase tracking-wider block mb-2">
+                  Simulasi Role
+                </label>
+                <select
+                  value={currentRole}
+                  onChange={(e) => {
+                    setCurrentRole(e.target.value);
+                    setIsOpen(false);
+                  }}
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-pointer outline-none"
+                >
+                  <option value="Admin Academic">Admin Akademik</option>
+                  <option value="Staf Admisi">Staf Admisi</option>
+                  <option value="Dosen">Dosen</option>
+                </select>
+              </div>
             </div>
           </motion.div>
         )}

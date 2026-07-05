@@ -21,30 +21,10 @@ export default function Footer() {
                 Matana University
               </span>
             </div>
-            <p className="text-sm">Program Magister Manajemen</p>
+            <p className="text-sm">sistem pengelolaan periode akademik </p>
           </div>
 
-          {/* Links */}
-          <div>
-            <h4 className="text-white font-semibold mb-4">Navigasi</h4>
-            <ul className="space-y-2 text-sm">
-              <li>
-                <a href="#" className="hover:text-orange-400 transition-colors">
-                  Tentang Program
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-orange-400 transition-colors">
-                  Persyaratan
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-orange-400 transition-colors">
-                  Beasiswa
-                </a>
-              </li>
-            </ul>
-          </div>
+       
 
           {/* Contact */}
           <div>
@@ -83,7 +63,7 @@ export default function Footer() {
         {/* Divider */}
         <div className="border-t border-gray-700 pt-8">
           <p className="text-center text-sm text-gray-400">
-            © 2025 Matana University. All rights reserved. <span className="text-gray-500">v({pkg.version})</span>
+            © 2026 Matana University. All rights reserved. <span className="text-gray-500">v({pkg.version})</span>
           </p>
         </div>
       </div>

@@ -275,3 +275,9 @@ firebase-debug.log
 .aws/
 .ssh/
 vite.config.js.timestamp*
+
+# === Jalur Khusus untuk Folder Backend (Sesuai Struktur Asli) ===
+backend/venv/
+backend/.venv/
+backend/db.sqlite3
+backend/**/__pycache__/
