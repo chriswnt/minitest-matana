@@ -1,22 +1,3 @@
-# Sistem Manajemen Periode Akademik - Matana University
-
-[![Built with Vite](https://img.shields.io/badge/Built%20with-Vite-646CFF?style=for-the-badge&logo=vite)](https://vitejs.dev)
-[![React 19](https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react)](https://react.dev)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-38B2AC?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com)
-[![Django](https://img.shields.io/badge/Django-Backend-092E20?style=for-the-badge&logo=django)](https://www.djangoproject.com/)
-
-## 📖 Daftar Isi
-
-- [Overview](#overview)
-- [Fitur Utama](#fitur-utama)
-- [Tech Stack](#tech-stack)
-- [Struktur Proyek](#struktur-proyek)
-- [Panduan Instalasi & Menjalankan Sistem](#panduan-instalasi--menjalankan-sistem)
-- [Dokumentasi Komponen & Sistem](#dokumentasi-komponen--sistem)
-- [Troubleshooting](#troubleshooting)
-
----
 
 ## 🎯 Overview
 
