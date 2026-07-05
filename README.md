@@ -169,8 +169,3 @@ Ini adalah hal normal. Django tidak memiliki halaman depan (Root). API dapat dia
 * Pastikan terminal backend (Django) **sedang berjalan**.
 * Periksa kembali apakah terminal backend tidak sedang dalam kondisi *freeze* atau *paused* (tekan `Ctrl+C` sekali atau tekan `Enter` di terminal backend untuk menyegarkan).
 
-```
-
-Setelah Anda _paste_ teks di atas, simpan file-nya (`Ctrl+S`), lalu lakukan _commit_ dan _push_ lagi ke GitHub. Tampilannya dijamin akan rapi: penjelasan akan menjadi teks biasa, dan kode terminal akan masuk dengan manis ke dalam kotak *code block*!
-
-```
