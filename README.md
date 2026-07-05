@@ -1,4 +1,11 @@
-# Sistem Manajemen Periode Akademik - Matana University
+Sip! Saya rombak total gaya bahasanya. Teks di bawah ini disusun dengan gaya *first-person* (sudut pandang pertama), seolah-olah Anda sendiri yang menceritakan hasil karya dan jerih payah Anda dalam membangun sistem ini. Gaya bahasanya profesional untuk dibaca dosen, namun tetap luwes layaknya seorang *developer* yang sedang mempresentasikan *project*-nya.
+
+Silakan *copy* seluruh teks di bawah ini dan jadikan isi final dari file `README.md` Anda:
+
+---
+
+```markdown
+# 🎓 Sistem Manajemen Periode Akademik - Matana University
 
 [![Built with Vite](https://img.shields.io/badge/Built%20with-Vite-646CFF?style=for-the-badge&logo=vite)](https://vitejs.dev)
 [![React 19](https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react)](https://react.dev)
@@ -6,171 +13,85 @@
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-38B2AC?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com)
 [![Django](https://img.shields.io/badge/Django-Backend-092E20?style=for-the-badge&logo=django)](https://www.djangoproject.com/)
 
-## 📖 Daftar Isi
+Halo! Ini adalah repositori untuk mini-project *Full-Stack* yang saya kembangkan khusus untuk mengelola data periode akademik di Matana University. 
 
-- [Overview](#overview)
-- [Fitur Utama](#fitur-utama)
-- [Tech Stack](#tech-stack)
-- [Struktur Proyek](#struktur-proyek)
-- [Panduan Instalasi & Menjalankan Sistem](#panduan-instalasi--menjalankan-sistem)
-- [Dokumentasi Komponen & Sistem](#dokumentasi-komponen--sistem)
-- [Troubleshooting](#troubleshooting)
+Di proyek ini, saya fokus membangun sistem yang bisa mengelola jadwal kuliah, rentang ujian (UTS & UAS), dan status semester, lengkap dengan pembatasan hak akses penggunanya. Frontend-nya saya bangun menggunakan ekosistem React modern, dan untuk API backend-nya saya memercayakannya pada framework Django.
 
 ---
 
-## 🎯 Overview
+## ✨ Fitur yang Saya Kembangkan
 
-**Sistem Manajemen Periode Akademik** adalah aplikasi *Full-Stack* yang dirancang untuk mengelola data jadwal perkuliahan, rentang waktu ujian (UTS & UAS), serta status aktif semester di Matana University. 
-
-Sistem ini memisahkan hak akses pengguna (*Role-Based Access Control*) dan menyediakan antarmuka yang responsif untuk melakukan operasi CRUD (Create, Read, Update, Delete) yang terhubung langsung dengan REST API dari *backend* Django.
-
----
-
-## ✨ Fitur Utama
-
-| Fitur | Deskripsi |
-|---------|---------|
-| 🔐 **Role-Based Access** | Simulasi hak akses dinamis melalui Navbar (*Admin Akademik* = Full Access, *Staf Admisi* & *Dosen* = Read-Only). |
-| 🛡️ **Data Locking (Kunci Periode)** | Fitur pencegahan modifikasi atau penghapusan pada periode akademik yang sudah berlalu/dikunci. |
-| 🔀 **Frontend Sorting** | Pengurutan data (Z-A / A-Z) berdasarkan Kode Periode, Nama, Tanggal, atau Status secara instan. |
-| 📅 **Filter Rentang Tanggal** | Pencarian data spesifik berdasarkan batas waktu Awal/Akhir Kuliah, UTS, dan UAS. |
-| 📄 **Export & Cetak** | Dukungan untuk mengunduh laporan data ke format **.CSV** dan fitur Cetak langsung dari browser. |
-| 🔢 **Smart Pagination** | Sistem pembagian halaman data (5, 10, 25, 50 baris per halaman) yang dihitung secara dinamis. |
-| 🔔 **Interactive UI** | Notifikasi proses (Sukses/Error/Loading) dan animasi transisi yang mulus menggunakan Framer Motion. |
+- **🔐 Simulasi Role-Based Access:** Saya menambahkan dropdown role di bagian Navbar. Tujuannya agar kita bisa langsung mengetes perbandingan hak akses. Kalau login sebagai *Admin Akademik*, kita punya akses penuh (CRUD). Tapi kalau diganti ke *Staf Admisi* atau *Dosen*, sistem otomatis beralih ke mode *Read-Only* (hanya bisa melihat dan memfilter data).
+- **🛡️ Data Locking (Kunci Periode):** Saya merancang logika agar data periode yang sudah lewat atau ditutup bisa dikunci. Data yang berstatus terkunci tidak akan bisa diedit atau dihapus secara sembarangan, demi menjaga integritas data historis kampus.
+- **🔀 Sorting & Filtering Instan:** Fitur pencarian rentang tanggal awal/akhir kuliah dan pengurutan tabel (A-Z/Z-A). Semua pemrosesan filter ini saya letakkan di *frontend* agar respons perpindahan datanya sangat cepat tanpa perlu me-*refresh* browser.
+- **📄 Export to CSV & Print:** Data jadwal yang ada di tabel bisa langsung di-download ke format `.csv` atau dicetak langsung dari browser.
+- **🔢 Smart Pagination:** Agar tabel tidak kepanjangan saat datanya banyak, saya sudah menyematkan fitur pembagian halaman (bisa disesuaikan untuk menampilkan 5, 10, 25, atau 50 data per halaman).
 
 ---
 
-## 🛠️ Tech Stack
+## 🛠️ Tech Stack yang Saya Gunakan
 
-### Frontend (User Interface)
-- **React (Vite)** - Library UI utama untuk rendering komponen yang cepat.
-- **TypeScript** - Memastikan keamanan tipe data (*type-safe*) selama pengembangan.
-- **Tailwind CSS** - Framework styling berbasis utilitas untuk desain responsif.
-- **Framer Motion** - Library untuk animasi transisi antar halaman dan komponen.
-- **Lucide React** - Koleksi ikon SVG modern (Search, Print, Lock, dll).
-- **React Router DOM** - Navigasi *client-side* antar halaman web.
+**Area Frontend (User Interface):**
+- **React (via Vite):** Biar proses *build* dan *hot-reload* saat *coding* terasa lebih kencang.
+- **TypeScript:** Supaya kodingan lebih rapi dan minim *bug* akibat bentrok tipe data.
+- **Tailwind CSS:** Untuk *styling* dan membuat tampilan *responsive* dengan cepat.
+- **Framer Motion & Lucide React:** Sedikit sentuhan animasi transisi dan ikon modern supaya UI-nya tidak kaku.
 
-### Backend (Server & API)
-- **Python** - Bahasa pemrograman utama *backend*.
-- **Django & Django REST Framework** - Framework penyedia arsitektur dan endpoint REST API.
-- **SQLite3** - Database relasional bawaan untuk penyimpanan data periode.
+**Area Backend (Server & API):**
+- **Django & Django REST Framework (Python):** Fondasi utama saya dalam merancang REST API yang solid.
+- **SQLite3:** Database relasional bawaan yang saya pakai agar *setup* lokalnya praktis tanpa perlu instalasi *engine* database tambahan.
 
 ---
 
-## 📁 Struktur Proyek
+## 🚀 Cara Menjalankan Proyek Ini Secara Lokal
 
-Proyek ini menggunakan arsitektur monorepo sederhana yang memisahkan *backend* dan *frontend* di dalam satu folder root yang sama:
+Karena proyek ini *Full-Stack*, ada dua bagian yang harus dinyalakan di terminal yang berbeda. Pastikan **Node.js** dan **Python** sudah terinstal di komputer Anda!
 
-```text
-minitestmatfor/
-├── backend/                   # Direktori Backend (Django API)
-│   ├── api/                   # Logic aplikasi (Views, Serializers, Models)
-│   ├── core/                  # Konfigurasi utama Django (Settings, URLs)
-│   ├── venv/                  # Virtual Environment Python (di-gitignore)
-│   ├── db.sqlite3             # Database lokal (di-gitignore)
-│   └── manage.py              # Entry point eksekusi Django
-│
-├── TEMPLATE-REACT/            # Direktori Frontend (Vite + React)
-│   ├── src/
-│   │   ├── components/        # Komponen UI (Navbar, Hero-Section, dll)
-│   │   ├── lib/               # Konstanta & tipe data TypeScript
-│   │   ├── App.tsx            # Root routing komponen
-│   │   └── main.tsx           # Entry point React
-│   ├── package.json           # Dependensi Node.js
-│   └── tailwind.config.js     # Konfigurasi styling
-│
-└── .gitignore                 # File penyaring git (konfigurasi root)
-🚀 Panduan Instalasi & Menjalankan Sistem
-Pastikan komputer Anda sudah terinstal Node.js dan Python 3.x.
-
-Ah, saya paham! Melihat gambar tersebut, sepertinya saat Anda melakukan *copy-paste*, tanda *backtick* (`````) penutupnya terhapus atau posisinya bergeser, sehingga teks penjelasan yang seharusnya ada di luar malah ikut terdeteksi sebagai kodingan.
-
-Aturannya sederhana: **Hanya perintah terminal/kodingan yang diapit oleh 3 tanda backtick.** Teks penjelasan biarkan di luar.
-
-Agar rapi seperti yang Anda inginkan (kodingan di dalam kotak abu-abu, penjelasan di luarnya), silakan **copy semua teks di bawah ini** dan timpa (paste) mulai dari bagian "Panduan Instalasi" sampai paling bawah di file `README.md` Anda:
-
-```markdown
-## 🚀 Panduan Instalasi & Menjalankan Sistem
-
-Pastikan komputer Anda sudah terinstal **Node.js** dan **Python 3.x**.
-
-### Langkah 1: Menjalankan Backend (Django)
-Buka terminal (sangat disarankan menggunakan **Git Bash** atau CMD), lalu jalankan perintah berikut secara berurutan:
+### 1. Nyalakan Backend (Database & API)
+Buka terminal (saya sangat menyarankan pakai **Git Bash** atau CMD), lalu ketik perintah ini secara berurutan:
 
 ```bash
-# 1. Masuk ke folder backend
+# Masuk ke folder backend
 cd backend
 
-# 2. Aktifkan Virtual Environment
-# Jika menggunakan Git Bash:
-source venv/bin/activate
-# Jika menggunakan CMD Windows:
-venv\Scripts\activate.bat
+# Aktifkan Virtual Environment
+source venv/bin/activate    # (Jika menggunakan Git Bash / Mac)
+venv\Scripts\activate.bat   # (Jika menggunakan CMD Windows)
 
-# 3. Jalankan server database / API
+# Jalankan server API
 python manage.py runserver
 
 ```
 
-*Backend akan berjalan di: `http://127.0.0.1:8000/*`
+*Biarkan terminal ini terbuka. Backend sekarang sudah jalan di `http://127.0.0.1:8000/*`
 
-### Langkah 2: Menjalankan Frontend (React)
+### 2. Nyalakan Frontend (User Interface)
 
-Buka tab **Terminal Baru**, biarkan terminal backend tetap berjalan di latar belakang.
+Buka tab terminal baru (agar terminal backend yang tadi tidak tertutup), lalu jalankan:
 
 ```bash
-# 1. Masuk ke folder frontend
+# Masuk ke folder frontend
 cd TEMPLATE-REACT
 
-# 2. Instal semua dependensi (jika belum)
+# Instal semua dependensi (hanya perlu dilakukan saat pertama kali)
 npm install
 
-# 3. Jalankan server antarmuka
+# Nyalakan web interface-nya
 npm run dev
 
 ```
 
-*Frontend akan berjalan di: `http://localhost:5173/*`
+*Selesai! Buka browser dan sistem sudah bisa diakses di `http://localhost:5173/*`
 
 ---
 
-## 📚 Dokumentasi Komponen & Sistem
+## 💡 Catatan Tambahan (Troubleshooting)
 
-### 1. Sistem Hak Akses (Role-Based)
-
-Akses sistem diatur sementara melalui *dropdown* di komponen `<Navbar />` (`src/components/navbar.tsx`).
-
-* **Admin Akademik:** Dapat menambah, mengedit, dan menghapus data periode.
-* **Staf Admisi / Dosen:** Hanya dapat melihat jadwal dan melakukan filter data (*View Only Mode*). Akan muncul *banner* peringatan khusus.
-
-### 2. Komponen Pengelolaan Data (`hero-section.tsx`)
-
-Merupakan inti dari sistem ini. Memiliki 2 mode tampilan (View Mode):
-
-* `"table"`: Menampilkan tabel daftar periode, filter pengurutan, pagination, dan tombol export.
-* `"form"`: Menampilkan formulir input yang divalidasi, dengan dukungan *checkbox* untuk mengunci data (`is_locked`) atau mengatur status aktif.
-
-### 3. Komunikasi API (CORS)
-
-Frontend menembak data ke endpoint `http://127.0.0.1:8000/api/periode-akademik/`. Pastikan konfigurasi `CORS_ALLOWED_ORIGINS` di `settings.py` Django sudah mengizinkan port `localhost` dari Vite.
-
----
-
-## 🐛 Troubleshooting
-
-**1. "Python is not recognized..." saat menyalakan backend**
-Pastikan Anda sudah menginstal Python dan mencentang opsi "Add Python to PATH" saat instalasi.
-
-**2. Error 404 saat membuka URL Backend `127.0.0.1:8000/` di browser**
-Ini adalah hal normal. Django tidak memiliki halaman depan (Root). API dapat diakses melalui jalur spesifik: `http://127.0.0.1:8000/api/periode-akademik/`.
-
-**3. Frontend gagal mengambil data (Koneksi Terputus)**
-
-* Pastikan terminal backend (Django) **sedang berjalan**.
-* Periksa kembali apakah terminal backend tidak sedang dalam kondisi *freeze* atau *paused* (tekan `Ctrl+C` sekali atau tekan `Enter` di terminal backend untuk menyegarkan).
+* **Kok datanya nggak muncul / "Koneksi Terputus"?**
+Coba cek terminal backend Django-nya. Biasanya terminal suka dalam kondisi *paused/freeze* karena terklik kursor. Cukup pencet tombol `Enter` atau tekan `Ctrl+C` sekali di terminal backend tersebut untuk membangunkannya lagi.
+* **Kenapa URL backend 127.0.0.1:8000/ menampilkan Error 404 Not Found?**
+Ini sangat normal! Di backend ini, saya sengaja tidak membuat halaman depan (*Root*). Jalur komunikasi datanya langsung saya arahkan ke *endpoint* spesifik untuk API, yaitu di `http://127.0.0.1:8000/api/periode-akademik/`.
 
 ```
-
-Setelah Anda _paste_ teks di atas, simpan file-nya (`Ctrl+S`), lalu lakukan _commit_ dan _push_ lagi ke GitHub. Tampilannya dijamin akan rapi: penjelasan akan menjadi teks biasa, dan kode terminal akan masuk dengan manis ke dalam kotak *code block*!
 
 ```
