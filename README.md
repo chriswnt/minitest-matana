@@ -61,16 +61,9 @@ minitestmatfor/
 │   └── tailwind.config.js     # Konfigurasi styling
 │
 └── .gitignore                 # File penyaring git (konfigurasi root)
-🚀 Panduan Instalasi & Menjalankan Sistem
-Pastikan komputer Anda sudah terinstal Node.js dan Python 3.x.
 
-Ah, saya paham! Melihat gambar tersebut, sepertinya saat Anda melakukan *copy-paste*, tanda *backtick* (`````) penutupnya terhapus atau posisinya bergeser, sehingga teks penjelasan yang seharusnya ada di luar malah ikut terdeteksi sebagai kodingan.
 
-Aturannya sederhana: **Hanya perintah terminal/kodingan yang diapit oleh 3 tanda backtick.** Teks penjelasan biarkan di luar.
 
-Agar rapi seperti yang Anda inginkan (kodingan di dalam kotak abu-abu, penjelasan di luarnya), silakan **copy semua teks di bawah ini** dan timpa (paste) mulai dari bagian "Panduan Instalasi" sampai paling bawah di file `README.md` Anda:
-
-```markdown
 ## 🚀 Panduan Instalasi & Menjalankan Sistem
 
 Pastikan komputer Anda sudah terinstal **Node.js** dan **Python 3.x**.
