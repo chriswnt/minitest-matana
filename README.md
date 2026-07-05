@@ -1,4 +1,4 @@
----
+
 
 # Sistem Manajemen Periode Akademik - Matana University
 
@@ -19,7 +19,7 @@ Di proyek ini, saya fokus membangun sistem yang bisa mengelola jadwal kuliah, re
 * Frontend: React (Vite), TypeScript, Tailwind CSS
 * Backend: Django REST Framework (Python), SQLite3
 
----
+
 
 ### Cara Menjalankan Proyek Secara Lokal
 
