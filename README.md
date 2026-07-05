@@ -83,10 +83,21 @@ minitestmatfor/
 🚀 Panduan Instalasi & Menjalankan Sistem
 Pastikan komputer Anda sudah terinstal Node.js dan Python 3.x.
 
-Langkah 1: Menjalankan Backend (Django)
-Buka terminal (sangat disarankan menggunakan Git Bash atau CMD), lalu jalankan perintah berikut secara berurutan:
+Ah, saya paham! Melihat gambar tersebut, sepertinya saat Anda melakukan *copy-paste*, tanda *backtick* (`````) penutupnya terhapus atau posisinya bergeser, sehingga teks penjelasan yang seharusnya ada di luar malah ikut terdeteksi sebagai kodingan.
 
-Bash
+Aturannya sederhana: **Hanya perintah terminal/kodingan yang diapit oleh 3 tanda backtick.** Teks penjelasan biarkan di luar.
+
+Agar rapi seperti yang Anda inginkan (kodingan di dalam kotak abu-abu, penjelasan di luarnya), silakan **copy semua teks di bawah ini** dan timpa (paste) mulai dari bagian "Panduan Instalasi" sampai paling bawah di file `README.md` Anda:
+
+```markdown
+## 🚀 Panduan Instalasi & Menjalankan Sistem
+
+Pastikan komputer Anda sudah terinstal **Node.js** dan **Python 3.x**.
+
+### Langkah 1: Menjalankan Backend (Django)
+Buka terminal (sangat disarankan menggunakan **Git Bash** atau CMD), lalu jalankan perintah berikut secara berurutan:
+
+```bash
 # 1. Masuk ke folder backend
 cd backend
 
@@ -98,51 +109,68 @@ venv\Scripts\activate.bat
 
 # 3. Jalankan server database / API
 python manage.py runserver
-Backend akan berjalan di: http://127.0.0.1:8000/
 
-Langkah 2: Menjalankan Frontend (React)
-Buka tab Terminal Baru, biarkan terminal backend tetap berjalan di latar belakang.
+```
 
-Bash
+*Backend akan berjalan di: `http://127.0.0.1:8000/*`
+
+### Langkah 2: Menjalankan Frontend (React)
+
+Buka tab **Terminal Baru**, biarkan terminal backend tetap berjalan di latar belakang.
+
+```bash
 # 1. Masuk ke folder frontend
 cd TEMPLATE-REACT
 
 # 2. Instal semua dependensi (jika belum)
 npm install
-# atau jika menggunakan pnpm: pnpm install
 
 # 3. Jalankan server antarmuka
 npm run dev
-# atau: pnpm dev
-Frontend akan berjalan di: http://localhost:5173/ (atau port lain yang disediakan Vite)
 
-📚 Dokumentasi Komponen & Sistem
-1. Sistem Hak Akses (Role-Based)
-Akses sistem diatur sementara melalui dropdown di komponen <Navbar /> (src/components/navbar.tsx). Mengubah peran di sini akan langsung berdampak pada tombol aksi di halaman utama:
+```
 
-Admin Akademik: Dapat menambah, mengedit, dan menghapus data periode.
+*Frontend akan berjalan di: `http://localhost:5173/*`
 
-Staf Admisi / Dosen: Hanya dapat melihat jadwal dan melakukan filter data (View Only Mode). Akan muncul banner peringatan khusus.
+---
 
-2. Komponen Pengelolaan Data (hero-section.tsx)
+## 📚 Dokumentasi Komponen & Sistem
+
+### 1. Sistem Hak Akses (Role-Based)
+
+Akses sistem diatur sementara melalui *dropdown* di komponen `<Navbar />` (`src/components/navbar.tsx`).
+
+* **Admin Akademik:** Dapat menambah, mengedit, dan menghapus data periode.
+* **Staf Admisi / Dosen:** Hanya dapat melihat jadwal dan melakukan filter data (*View Only Mode*). Akan muncul *banner* peringatan khusus.
+
+### 2. Komponen Pengelolaan Data (`hero-section.tsx`)
+
 Merupakan inti dari sistem ini. Memiliki 2 mode tampilan (View Mode):
 
-"table": Menampilkan tabel daftar periode, filter pengurutan, pagination, dan tombol export.
+* `"table"`: Menampilkan tabel daftar periode, filter pengurutan, pagination, dan tombol export.
+* `"form"`: Menampilkan formulir input yang divalidasi, dengan dukungan *checkbox* untuk mengunci data (`is_locked`) atau mengatur status aktif.
 
-"form": Menampilkan formulir input yang divalidasi, dengan dukungan checkbox untuk mengunci data (is_locked) atau mengatur status aktif (status_aktif).
+### 3. Komunikasi API (CORS)
 
-3. Komunikasi API (CORS)
-Frontend menembak data ke endpoint http://127.0.0.1:8000/api/periode-akademik/. Pastikan konfigurasi CORS_ALLOWED_ORIGINS di settings.py Django sudah mengizinkan port localhost dari Vite.
+Frontend menembak data ke endpoint `http://127.0.0.1:8000/api/periode-akademik/`. Pastikan konfigurasi `CORS_ALLOWED_ORIGINS` di `settings.py` Django sudah mengizinkan port `localhost` dari Vite.
 
-🐛 Troubleshooting
-1. "Python is not recognized..." saat menyalakan backend
+---
+
+## 🐛 Troubleshooting
+
+**1. "Python is not recognized..." saat menyalakan backend**
 Pastikan Anda sudah menginstal Python dan mencentang opsi "Add Python to PATH" saat instalasi.
 
-2. Error 404 saat membuka URL Backend 127.0.0.1:8000/ di browser
-Ini adalah hal normal. Django tidak memiliki halaman depan (Root). API dapat diakses melalui jalur spesifik: http://127.0.0.1:8000/api/periode-akademik/.
+**2. Error 404 saat membuka URL Backend `127.0.0.1:8000/` di browser**
+Ini adalah hal normal. Django tidak memiliki halaman depan (Root). API dapat diakses melalui jalur spesifik: `http://127.0.0.1:8000/api/periode-akademik/`.
 
-3. Frontend gagal mengambil data (Koneksi Terputus)
+**3. Frontend gagal mengambil data (Koneksi Terputus)**
 
-Pastikan terminal backend (Django) sedang berjalan.
+* Pastikan terminal backend (Django) **sedang berjalan**.
+* Periksa kembali apakah terminal backend tidak sedang dalam kondisi *freeze* atau *paused* (tekan `Ctrl+C` sekali atau tekan `Enter` di terminal backend untuk menyegarkan).
 
-Periksa kembali apakah terminal backend tidak sedang dalam kondisi freeze atau paused (tekan Ctrl+C sekali atau tekan Enter di terminal backend untuk menyegarkan).
+```
+
+Setelah Anda _paste_ teks di atas, simpan file-nya (`Ctrl+S`), lalu lakukan _commit_ dan _push_ lagi ke GitHub. Tampilannya dijamin akan rapi: penjelasan akan menjadi teks biasa, dan kode terminal akan masuk dengan manis ke dalam kotak *code block*!
+
+```
