@@ -65,16 +65,14 @@ minitestmatfor/
 
 
 ## 🚀 Panduan Instalasi & Menjalankan Sistem
-
 Pastikan komputer Anda sudah terinstal **Node.js** dan **Python 3.x**.
 
 ### Langkah 1: Menjalankan Backend (Django)
 Buka terminal (sangat disarankan menggunakan **Git Bash** atau CMD), lalu jalankan perintah berikut secara berurutan:
 
-```bash
+
 # 1. Masuk ke folder backend
 cd backend
-
 # 2. Aktifkan Virtual Environment
 # Jika menggunakan Git Bash:
 source venv/bin/activate
@@ -92,7 +90,7 @@ python manage.py runserver
 
 Buka tab **Terminal Baru**, biarkan terminal backend tetap berjalan di latar belakang.
 
-```bash
+
 # 1. Masuk ke folder frontend
 cd TEMPLATE-REACT
 
