@@ -3,15 +3,23 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
+import { ArrowLeft } from "lucide-react";
 import { NAV_LINKS } from "@/lib/constants";
+import type { AcademicRole } from "@/lib/types";
 
 // Menambahkan interface untuk TypeScript (Props)
 interface NavbarProps {
-  currentRole: string;
-  setCurrentRole: (role: string) => void;
+  currentRole: AcademicRole;
+  setCurrentRole: (role: AcademicRole) => void;
+  onBackToRoleSelection: () => void;
 }
 
-export default function Navbar({ currentRole, setCurrentRole }: NavbarProps) {
+const roleOptions = ["Admin Akademik", "Staf Admisi", "Dosen"] as const satisfies readonly AcademicRole[];
+
+const isAcademicRole = (value: string): value is AcademicRole =>
+  roleOptions.some((role) => role === value);
+
+export default function Navbar({ currentRole, setCurrentRole, onBackToRoleSelection }: NavbarProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
@@ -90,13 +98,27 @@ export default function Navbar({ currentRole, setCurrentRole }: NavbarProps) {
             </span>
             <select
               value={currentRole}
-              onChange={(e) => setCurrentRole(e.target.value)}
-              className="bg-gray-50 border border-gray-200 text-gray-700 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2 py-1.5 cursor-pointer outline-none transition-colors hover:bg-gray-100"
+              onChange={(e) => {
+                if (isAcademicRole(e.target.value)) {
+                  setCurrentRole(e.target.value);
+                }
+              }}
+              className="native-light-control block cursor-pointer rounded-lg border border-gray-200 bg-gray-50 px-2 py-1.5 text-sm text-gray-700 outline-none transition-colors hover:bg-gray-100 focus:border-blue-500 focus:ring-blue-500"
             >
-              <option value="Admin Academic">Admin Akademik</option>
-              <option value="Staf Admisi">Staf Admisi</option>
-              <option value="Dosen">Dosen</option>
+              {roleOptions.map((role) => (
+                <option key={role} value={role}>
+                  {role}
+                </option>
+              ))}
             </select>
+            <button
+              type="button"
+              onClick={onBackToRoleSelection}
+              className="ml-2 inline-flex items-center gap-1.5 rounded-lg border border-gray-200 bg-white px-3 py-1.5 text-sm font-semibold text-gray-700 transition hover:border-blue-200 hover:bg-blue-50 hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-200"
+            >
+              <ArrowLeft className="h-4 w-4" />
+              Ganti Role
+            </button>
           </div>
         </div>
 
@@ -182,15 +204,30 @@ export default function Navbar({ currentRole, setCurrentRole }: NavbarProps) {
                 <select
                   value={currentRole}
                   onChange={(e) => {
-                    setCurrentRole(e.target.value);
-                    setIsOpen(false);
+                    if (isAcademicRole(e.target.value)) {
+                      setCurrentRole(e.target.value);
+                      setIsOpen(false);
+                    }
                   }}
-                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-pointer outline-none"
+                  className="native-light-control block w-full cursor-pointer rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 outline-none focus:border-blue-500 focus:ring-blue-500"
                 >
-                  <option value="Admin Academic">Admin Akademik</option>
-                  <option value="Staf Admisi">Staf Admisi</option>
-                  <option value="Dosen">Dosen</option>
+                  {roleOptions.map((role) => (
+                    <option key={role} value={role}>
+                      {role}
+                    </option>
+                  ))}
                 </select>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setIsOpen(false);
+                    onBackToRoleSelection();
+                  }}
+                  className="mt-3 inline-flex w-full items-center justify-center gap-2 rounded-lg border border-gray-200 bg-white px-4 py-2.5 text-sm font-semibold text-gray-700 transition hover:border-blue-200 hover:bg-blue-50 hover:text-blue-700"
+                >
+                  <ArrowLeft className="h-4 w-4" />
+                  Kembali pilih role
+                </button>
               </div>
             </div>
           </motion.div>
