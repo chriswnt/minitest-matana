@@ -1,3 +1,17 @@
+Ide yang sangat cemerlang! Mengubah `python` menjadi `py` (menggunakan *Python Launcher* bawaan Windows) memang seringkali lebih aman di beberapa komputer yang pengaturan *Path Element*-nya berantakan.
+
+Menambahkan catatan tentang **Execution Policy** di PowerShell juga adalah langkah antisipasi tingkat dewa. Ini adalah *error* yang paling sering menjebak dosen atau *reviewer* saat mencoba menyalakan *project* Python di Windows.
+
+Berikut adalah teks README yang sudah direvisi sesuai permintaanmu. Silakan *copy* dan timpa teks yang lama:
+
+---
+
+```markdown
+# 🎓 Sistem Manajemen Periode Akademik - Matana University
+
+Halo! Ini adalah repositori untuk *mini-project Full-Stack* yang saya kembangkan khusus untuk mengelola data periode akademik.
+
+Proyek ini dibangun menggunakan **React (Vite) + TypeScript** untuk sisi *Frontend* dan **Django REST Framework** untuk sisi *Backend*.
 
 ---
 
@@ -28,13 +42,18 @@ cd backend
 
 2. Buat *virtual environment* baru agar instalasi pustaka tetap terisolasi:
 ```bash
-python -m venv venv
+py -m venv venv
 
 ```
 
 
 3. Aktifkan *virtual environment* tersebut:
 * **Windows (PowerShell):** `.\venv\Scripts\Activate.ps1`
+> **💡 Catatan Khusus Pengguna PowerShell:** Jika saat mengaktifkan muncul *error* berwarna merah tentang "Execution_Policies", jalankan perintah ini terlebih dahulu:
+> `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser`
+> (Ketik `Y` jika diminta konfirmasi, lalu ulangi perintah aktivasi di atas).
+
+
 * **Windows (CMD):** `venv\Scripts\activate`
 * **Mac/Linux:** `source venv/bin/activate`
 
@@ -48,21 +67,21 @@ pip install -r requirements.txt
 
 5. Lakukan migrasi untuk membangun struktur tabel *database* baru:
 ```bash
-python manage.py migrate
+py manage.py migrate
 
 ```
 
 
 6. **(Direkomendasikan)** Jalankan *script* ini untuk mengisi *database* dengan puluhan data *dummy* agar tabel tidak kosong saat dievaluasi:
 ```bash
-python seed_data.py
+py seed_data.py
 
 ```
 
 
 7. Nyalakan server *backend*:
 ```bash
-python manage.py runserver
+py manage.py runserver
 
 ```
 
