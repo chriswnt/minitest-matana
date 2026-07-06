@@ -71,4 +71,4 @@ for start_year in range(2010, 2025):
         }
     )
 
-print("✅ Berhasil! 45 data dummy telah dimasukkan ke database.")z
+print("✅ Berhasil! 45 data dummy telah dimasukkan ke database.")
