@@ -1,12 +1,6 @@
-Ide yang sangat cemerlang! Mengubah `python` menjadi `py` (menggunakan *Python Launcher* bawaan Windows) memang seringkali lebih aman di beberapa komputer yang pengaturan *Path Element*-nya berantakan.
-
-Menambahkan catatan tentang **Execution Policy** di PowerShell juga adalah langkah antisipasi tingkat dewa. Ini adalah *error* yang paling sering menjebak dosen atau *reviewer* saat mencoba menyalakan *project* Python di Windows.
-
-Berikut adalah teks README yang sudah direvisi sesuai permintaanmu. Silakan *copy* dan timpa teks yang lama:
-
 ---
 
-```markdown
+```
 # 🎓 Sistem Manajemen Periode Akademik - Matana University
 
 Halo! Ini adalah repositori untuk *mini-project Full-Stack* yang saya kembangkan khusus untuk mengelola data periode akademik.
