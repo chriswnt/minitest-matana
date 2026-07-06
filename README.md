@@ -1,17 +1,10 @@
-Sip! Saya rombak total gaya bahasanya. Teks di bawah ini disusun dengan gaya *first-person* (sudut pandang pertama), seolah-olah Anda sendiri yang menceritakan hasil karya dan jerih payah Anda dalam membangun sistem ini. Gaya bahasanya profesional untuk dibaca dosen, namun tetap luwes layaknya seorang *developer* yang sedang mempresentasikan *project*-nya.
 
-Silakan *copy* seluruh teks di bawah ini dan jadikan isi final dari file `README.md` Anda:
 
 ---
 
 ```markdown
 # 🎓 Sistem Manajemen Periode Akademik - Matana University
 
-[![Built with Vite](https://img.shields.io/badge/Built%20with-Vite-646CFF?style=for-the-badge&logo=vite)](https://vitejs.dev)
-[![React 19](https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react)](https://react.dev)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-38B2AC?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com)
-[![Django](https://img.shields.io/badge/Django-Backend-092E20?style=for-the-badge&logo=django)](https://www.djangoproject.com/)
 
 Halo! Ini adalah repositori untuk mini-project *Full-Stack* yang saya kembangkan khusus untuk mengelola data periode akademik di Matana University. 
 
@@ -50,6 +43,36 @@ Karena proyek ini *Full-Stack*, ada dua bagian yang harus dinyalakan di terminal
 ### 1. Nyalakan Backend (Database & API)
 Buka terminal (saya sangat menyarankan pakai **Git Bash** atau CMD), lalu ketik perintah ini secara berurutan:
 
+### Fitur yang Saya Kembangkan:
+
+* **Simulasi Role-Based Access:** Dropdown role di Navbar untuk tes hak akses (Admin Akademik = Full Access, Dosen/Staf = Read-Only).
+* **Data Locking:** Data periode yang sudah ditutup tidak bisa diedit sembarangan untuk menjaga integritas data.
+* **Sorting & Filtering:** Pencarian rentang tanggal dan urut abjad yang instan di tabel tanpa perlu refresh halaman.
+* **Export & Print:** Data tabel bisa langsung di-download ke format CSV atau dicetak.
+* **Smart Pagination:** Pembagian halaman tabel otomatis (5, 10, 25, atau 50 data per halaman).
+
+### Tech Stack yang Digunakan:
+
+* **Frontend:** React (Vite), TypeScript, Tailwind CSS
+* **Backend:** Django REST Framework (Python), SQLite3
+
+---
+
+### Cara Menjalankan Proyek Secara Lokal
+
+Pastikan **Node.js** dan **Python** sudah terinstal di komputer Anda. Lakukan *clone* repositori ini, lalu buka terminal di dalam folder hasil *clone* tersebut.
+
+Ada dua bagian yang harus dinyalakan melalui terminal yang berbeda:
+
+#### Langkah 1: Menyalakan Backend (Database & API)
+
+1. Buka terminal (Git Bash/CMD/PowerShell), lalu masuk ke folder backend:
+   ```bash
+   cd backend
+
+```
+
+2. Buat *virtual environment* baru:
 ```bash
 # Masuk ke folder backend
 cd backend
@@ -69,6 +92,9 @@ python manage.py runserver
 
 Buka tab terminal baru (agar terminal backend yang tadi tidak tertutup), lalu jalankan:
 
+1. Buka tab terminal baru. Pastikan posisi terminal saat ini berada di **folder utama/root** proyek (sejajar dengan file `package.json`).
+2. *(Opsional)* Jika diperlukan, gandakan file `.env.example` menjadi `.env`.
+3. Ketik perintah berikut untuk mengunduh dependensi Node.js:
 ```bash
 # Masuk ke folder frontend
 cd TEMPLATE-REACT
