@@ -1,13 +1,3 @@
----
-
-```
-# 🎓 Sistem Manajemen Periode Akademik - Matana University
-
-Halo! Ini adalah repositori untuk *mini-project Full-Stack* yang saya kembangkan khusus untuk mengelola data periode akademik.
-
-Proyek ini dibangun menggunakan **React (Vite) + TypeScript** untuk sisi *Frontend* dan **Django REST Framework** untuk sisi *Backend*.
-
----
 
 ## 🚀 Panduan Instalasi (Local Development)
 
